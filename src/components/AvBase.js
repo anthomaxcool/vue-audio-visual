@@ -24,6 +24,15 @@ const props = {
     default: true
   },
   /**
+   * prop: 'audio-autoplay'
+   * Audio element autoplay attribute. When provided should
+   * start automatically the audio
+   */
+  audioAutoplay: {
+    type: Boolean,
+    default: false
+  },
+  /**
    * prop: 'cors-anonym'
    * CORS requests for this element will not have the credentials flag set.
    * Set crossOrigin property of audio element to 'anonymous'.
@@ -99,6 +108,7 @@ const methods = {
 
     audio.setAttribute('src', this.audioSrc)
     if (this.audioControls) audio.setAttribute('controls', true)
+    if (this.audioAutoplay) audio.setAttribute('autoplay', true)
     if (this.audioClass) audio.setAttribute('class', this.audioClass)
     if (this.corsAnonym) audio.crossOrigin = 'anonymous'
     audioDiv.appendChild(audio)
